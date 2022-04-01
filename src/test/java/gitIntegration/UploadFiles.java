@@ -2,14 +2,21 @@ package gitIntegration;
 
 import static org.testng.Assert.ARRAY_MISMATCH_TEMPLATE;
 
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.Toolkit;
+import java.awt.datatransfer.StringSelection;
+import java.awt.event.KeyEvent;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.Duration;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -23,50 +30,57 @@ public class UploadFiles {
 	
 	
 	@Test
- public void xpathApprach() throws SQLException {
+ public void fileUpload() throws SQLException, AWTException {
 		
-	//WebDriverManager.chromedriver().setup();
+	WebDriverManager.chromedriver().setup();
 	
-	//driver = new ChromeDriver();
-		int empnumber= 33;
-		int deptnumber= 100;
+	driver = new ChromeDriver();
+	driver.get("https://www.monsterindia.com/");
+	driver.manage().window().maximize();
+	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+	driver.findElement(By.id("wzrk-confirm")).click();
+	driver.findElement(By.xpath("//span[text()='Upload Resume']")).click();
+	WebElement button = driver.findElement(By.xpath("//input[@id='file-upload']"));
+	
+	
+	JavascriptExecutor js = (JavascriptExecutor)driver;
+	js.executeScript("arguments[0].click();", button);
+	
+	// Using Robot class in Java
+	Robot rb = new Robot();
+	rb.delay(2000);
+    // copy to clipborad like CTRL +C 
+	StringSelection ss = new StringSelection("D:\\Infa_install.rar");
+	Toolkit.getDefaultToolkit().getSystemClipboard().setContents(ss, null);
+	rb.delay(2000);
+	// Ctrol +V
+	 rb.keyPress(KeyEvent.VK_CONTROL);
+	 rb.keyPress(KeyEvent.VK_V);
+	 rb.keyRelease(KeyEvent.VK_CONTROL);
+	 rb.keyRelease(KeyEvent.VK_V);
+	 
+	 rb.delay(2000);
+	 // Press Enter
+	 
+	 rb.keyPress(KeyEvent.VK_ENTER);
+	 rb.delay(2000);
+	 rb.keyRelease(KeyEvent.VK_ENTER);
+	 rb.delay(2000);
+	 
+	 driver.close();
+	 
+	 
+	
 		
-    
-	String sqlQuery = "select empno,deptno from employee";
 	
-	Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521/XE", "system","admin");
-	Statement stmt = con.createStatement();
-	ResultSet rs = stmt.executeQuery(sqlQuery);
 	
-	boolean status = false;
-	while (rs.next())
-	{
+	//driver.findElement(By.xpath("//body/div[@id='themeDefault']/section[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/section[1]/div[1]/form[1]/div[1]/div[1]/div[1]/div[1]/input[1]")).click();
 	
 		
-	int empno = rs.getInt("empno");
-	int deptno = rs.getInt("deptno");
-	
-	if (empno==empnumber || deptno==deptnumber)
-	{
-		System.out.println("record found");
-		 status = true;
-		break;
-		
-	}
-	
-	}
-	
-	if (status == false)
-	System.out.println("record not found");
 	
 	
 	
-	}
 	
-
-			
-	
-
-		
+	}	
  }
 

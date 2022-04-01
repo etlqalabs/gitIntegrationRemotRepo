@@ -3,11 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="gitIntegration.XpathLocator">
+      <class name="gitIntegration.UploadFiles">
         <methods>
-          <include name="xpathApprach"/>
+          <include name="fileUpload"/>
         </methods>
-      </class> <!-- gitIntegration.XpathLocator -->
+      </class> <!-- gitIntegration.UploadFiles -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
