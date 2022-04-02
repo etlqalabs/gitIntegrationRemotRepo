@@ -2,16 +2,16 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2022-04-01T19:01:44 IST" name="Default suite" finished-at="2022-04-01T19:02:00 IST" duration-ms="16032">
+  <suite started-at="2022-04-02T14:42:53 IST" name="Default suite" finished-at="2022-04-02T14:43:01 IST" duration-ms="7796">
     <groups>
     </groups>
-    <test started-at="2022-04-01T19:01:44 IST" name="Default test" finished-at="2022-04-01T19:02:00 IST" duration-ms="16032">
-      <class name="gitIntegration.UploadFiles">
-        <test-method signature="fileUpload()[pri:0, instance:gitIntegration.UploadFiles@59e32960]" started-at="2022-04-01T19:01:44 IST" name="fileUpload" finished-at="2022-04-01T19:02:00 IST" duration-ms="15897" status="PASS">
+    <test started-at="2022-04-02T14:42:53 IST" name="Default test" finished-at="2022-04-02T14:43:01 IST" duration-ms="7796">
+      <class name="gitIntegration.HandleCookies">
+        <test-method signature="coockiesHandling()[pri:0, instance:gitIntegration.HandleCookies@59e32960]" started-at="2022-04-02T14:42:53 IST" name="coockiesHandling" finished-at="2022-04-02T14:43:01 IST" duration-ms="7694" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- fileUpload -->
-      </class> <!-- gitIntegration.UploadFiles -->
+        </test-method> <!-- coockiesHandling -->
+      </class> <!-- gitIntegration.HandleCookies -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
