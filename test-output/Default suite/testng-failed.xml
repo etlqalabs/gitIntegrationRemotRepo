@@ -3,11 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="gitIntegration.JSExecutor">
+      <class name="gitIntegration.FramesDemo">
         <methods>
-          <include name="javaScriptexecutor"/>
+          <include name="fileUpload"/>
         </methods>
-      </class> <!-- gitIntegration.JSExecutor -->
+      </class> <!-- gitIntegration.FramesDemo -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
